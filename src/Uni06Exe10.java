@@ -8,9 +8,9 @@ public class Uni06Exe10 {
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("Digite uma opção abaixo: ");
-        // Ira aparecer enquanto a função "opcao" for diferente de 8
+        // Ira aparecer enquanto a função "opcao" for diferente de 8.
         do {
-            System.out.println("-----MENU-----"); // Criação MENU
+            System.out.println("-----MENU-----"); // Criação MENU.
             System.out.println("1 - Incluir valor");
             System.out.println("2 - Pesquisar valor");
             System.out.println("3 - Alterar valor");
@@ -20,6 +20,7 @@ public class Uni06Exe10 {
             System.out.println("7 - Inverter valores");
             System.out.println("8 - Sair do sistema");
 
+            //Declarando teclado para menu.
             opcao = teclado.nextInt();
             System.out.println("Opção digitada: " + opcao);
 
@@ -59,7 +60,7 @@ public class Uni06Exe10 {
         int numeroDigitado = teclado.nextInt();
         for (int i = 0; i < vetor.length; i++) {
             if (vetor[i] == numeroDigitado) {
-                System.out.println("Numero: " + numeroDigitado + " encontrado na posição vetor[" + vetor + "]"); // Informa valores inseridos dentro do vetor
+                System.out.println("Numero: " + numeroDigitado + " encontrado na posição vetor[" + vetor + "]"); // Informa valores inseridos dentro do vetor.
                 return;
             }else{
             }
@@ -73,7 +74,7 @@ public class Uni06Exe10 {
         if (posicao < vetor.length) {
             vetor[posicao] = numero;
 
-            System.out.println("Numero " + numero + " incluido na posição vetor[" + posicao + "]"); // Informa valores inseridos dentro do vetor
+            System.out.println("Numero " + numero + " incluido na posição vetor[" + posicao + "]"); // Informa valores inseridos dentro do vetor.
         } else {
             System.out.println("Vetor cheio!");
         }
