@@ -20,7 +20,7 @@ public class Uni06Exe10 {
             System.out.println("7 - Inverter valores");
             System.out.println("8 - Sair do sistema");
 
-            //Declarando teclado para menu.
+            // Declarando teclado para menu.
             opcao = teclado.nextInt();
             System.out.println("Opção digitada: " + opcao);
 
@@ -32,7 +32,7 @@ public class Uni06Exe10 {
                     pesquisarValor(vetor, teclado);
                     break;
                 case 3:
-
+                    alterarValor(vetor, teclado);
                     break;
                 case 4:
 
@@ -56,16 +56,32 @@ public class Uni06Exe10 {
 
     }
 
-    private void pesquisarValor(int[] vetor, Scanner teclado) {
+    private void alterarValor(int[] vetor, Scanner teclado) {
+
+        //Validação se o numero existe ou não.
+        int indice = pesquisarValor(vetor, teclado);
+        if (indice >= 0) {
+        //Se existir, alterar valor
+
+        System.out.println("Digite um novo numero");
+        int novoNumero = teclado.nextInt();
+        vetor[indice] = novoNumero;
+        }
+        //Se não existir, informar que não existe
+        System.out.println("Não existe o numero informado.");
+    }
+
+    private int pesquisarValor(int[] vetor, Scanner teclado) {
         int numeroDigitado = teclado.nextInt();
         for (int i = 0; i < vetor.length; i++) {
             if (vetor[i] == numeroDigitado) {
                 System.out.println("Numero: " + numeroDigitado + " encontrado na posição vetor[" + vetor + "]"); // Informa valores inseridos dentro do vetor.
-                return;
-            }else{
+                return i;
+            } else {
             }
         }
         System.out.println("Não existe valor");
+        return -1;
     }
 
     private int incluirValor(int[] vetor, Scanner teclado, int posicao) {
@@ -74,7 +90,9 @@ public class Uni06Exe10 {
         if (posicao < vetor.length) {
             vetor[posicao] = numero;
 
-            System.out.println("Numero " + numero + " incluido na posição vetor[" + posicao + "]"); // Informa valores inseridos dentro do vetor.
+            System.out.println("Numero " + numero + " incluido na posição vetor[" + posicao + "]"); // Informa valores
+                                                                                                    // inseridos dentro
+                                                                                                    // do vetor.
         } else {
             System.out.println("Vetor cheio!");
         }
