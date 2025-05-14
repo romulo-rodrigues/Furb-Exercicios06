@@ -35,7 +35,7 @@ public class Uni06Exe10 {
                     alterarValor(vetor, teclado);
                     break;
                 case 4:
-
+                    deletarValor(vetor, teclado, posicao);
                     break;
                 case 5:
 
@@ -56,18 +56,34 @@ public class Uni06Exe10 {
 
     }
 
-    private void alterarValor(int[] vetor, Scanner teclado) {
-
-        //Validação se o numero existe ou não.
+    private int deletarValor(int[] vetor, Scanner teclado, int posicao) {
         int indice = pesquisarValor(vetor, teclado);
         if (indice >= 0) {
-        //Se existir, alterar valor
-
-        System.out.println("Digite um novo numero");
-        int novoNumero = teclado.nextInt();
-        vetor[indice] = novoNumero;
+            for (int i = indice; i < posicao - 1; i++) {
+                vetor[i] = vetor[i + 1];
+            }
+            System.out.println("Valor " + vetor[indice] + " será excluido da posição [" + indice + "] do vetor.");
+            vetor[posicao - 1] = 0;
+            System.out.println("VALOR EXCLUIDO!");
+            return posicao -1;
+        }else{
+            System.out.println("Valor não encontrado, nada foi excluido.");
+            return posicao;
         }
-        //Se não existir, informar que não existe
+    }
+
+    private void alterarValor(int[] vetor, Scanner teclado) {
+
+        // Validação se o numero existe ou não.
+        int indice = pesquisarValor(vetor, teclado);
+        if (indice >= 0) {
+            // Se existir, alterar valor
+
+            System.out.println("Digite um novo numero");
+            int novoNumero = teclado.nextInt();
+            vetor[indice] = novoNumero;
+        }
+        // Se não existir, informar que não existe
         System.out.println("Não existe o numero informado.");
     }
 
@@ -75,7 +91,12 @@ public class Uni06Exe10 {
         int numeroDigitado = teclado.nextInt();
         for (int i = 0; i < vetor.length; i++) {
             if (vetor[i] == numeroDigitado) {
-                System.out.println("Numero: " + numeroDigitado + " encontrado na posição vetor[" + vetor + "]"); // Informa valores inseridos dentro do vetor.
+                System.out.println("Numero: " + numeroDigitado + " encontrado na posição vetor[" + i + "]"); // Informa
+                                                                                                             // valores
+                                                                                                             // inseridos
+                                                                                                             // dentro
+                                                                                                             // do
+                                                                                                             // vetor.
                 return i;
             } else {
             }
